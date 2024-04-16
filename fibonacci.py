@@ -11,13 +11,16 @@ from functools import lru_cache
 def fibonacci_recursion(n: int) -> int:
     """使用遞歸方法計算第 n 項的費波那契數列值"""
     if n < 2:
-        return n  # 費波那契數列的前兩項為 0 和 1
+        # 費波那契數列的前兩項為 0 和 1
+        return n
     # 對於 n 大於或等於 2 的情況，每一項的值都是前兩項的和
     return fibonacci_recursion(n - 1) + fibonacci_recursion(n - 2)
 
 
 def fibonacci_iteration(n: int) -> int:
     """使用迭代方法計算第 n 項的費波那契數列值"""
+    if n == 0:
+        return 0
     a, b = 0, 1
     for _ in range(2, n + 1):
         a, b = b, a + b
@@ -34,7 +37,7 @@ def fibonacci_iteration_array(n: int) -> List[int]:
     array = [0, 1] + [0] * (n - 2)
     for i in range(2, n):
         array[i] = array[i - 1] + array[i - 2]
-    return array
+    return array[:n]
 
 
 if __name__ == "__main__":
