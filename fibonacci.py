@@ -27,9 +27,28 @@ def fibonacci_iteration(n: int) -> int:
     return b
 
 
+# 定義一個函數，該函數接受一個整數n作為輸入，並返回一個長度為n的費波那契數列
 def fibonacci_recursion_array(n: int) -> List[int]:
-    """使用遞歸方法計算前 n 項的費波那契數列"""
-    return [fibonacci_recursion(i) for i in range(n)]
+    # 初始化一個長度為n的數組，所有元素都為0
+    array = [0] * n
+
+    # 定義一個輔助函數，該函數接受三個參數：n、a和b
+    def helper(n: int, a: int, b: int) -> None:
+        # 如果n大於等於1，則將a的值賦給數組的第-n個元素
+        if n >= 1:
+            array[-n] = a
+        # 如果n大於等於2，則將b的值賦給數組的第-(n-1)個元素
+        if n >= 2:
+            array[-n + 1] = b
+        # 如果n大於等於3，則遞歸調用輔助函數，並將n減1，a和b分別更新為b和a+b
+        if n >= 3:
+            helper(n - 1, b, a + b)
+
+    # 調用輔助函數，初始時a和b的值分別為0和1
+    helper(n, 0, 1)
+
+    # 返回生成的費波那契數列
+    return array
 
 
 def fibonacci_iteration_array(n: int) -> List[int]:
