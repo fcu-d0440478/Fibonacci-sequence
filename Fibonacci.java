@@ -61,13 +61,11 @@ public class Fibonacci {
 
     // 使用迭代方法計算前 n 項的費波那契數列
     private static int[] fibonacciIterationArray(int n) {
-        int[] array = new int[n];
-        array[0] = 0;
+        int[] array = new int[Math.max(n, 2)];
         array[1] = 1;
         for (int i = 2; i < n; i++) {
-            // 每一項的值都是前兩項的和
             array[i] = array[i - 1] + array[i - 2];
         }
-        return array;
+        return Arrays.copyOf(array, n);
     }
 }
