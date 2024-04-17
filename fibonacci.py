@@ -19,12 +19,10 @@ def fibonacci_recursion(n: int) -> int:
 
 def fibonacci_iteration(n: int) -> int:
     """使用迭代方法計算第 n 項的費波那契數列值"""
-    if n == 0:
-        return 0
     a, b = 0, 1
-    for _ in range(2, n + 1):
+    for _ in range(n):
         a, b = b, a + b
-    return b
+    return a
 
 
 # 定義一個函數，該函數接受一個整數n作為輸入，並返回一個長度為n的費波那契數列
