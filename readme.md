@@ -1,6 +1,6 @@
 # Fibonacci Sequence Generator in Python and Java
 
-這個 Java 和 Python 程式碼是用來生成費波那契數列的。它提供了兩種方法：遞歸和迭代。
+這個 Java 和 Python 程式碼是用來生成費波那契數列的。它提供了兩種方法：遞歸和迭代。並且都追求**最佳解**，在 Java 使用 HashMap 來達成 Memoization，在 Python 使用 lru_cache 來加速程式。
 
 ## 費波那契數列介紹
 
@@ -19,7 +19,7 @@
 
 ## 使用方法
 
-只需在 `main` 函數中設定要計算的費波那契數列的項數，然後調用相應的函數即可。
+只需在 `main` 函數中設定要計算的費波那契數列的**項數(n)**，然後調用相應的函數即可。
 
 Python
 
