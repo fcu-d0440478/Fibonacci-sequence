@@ -2,22 +2,38 @@
 // 引入所需的模組
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class Fibonacci {
     // 創建一個 HashMap 來存儲已計算的費波那契數列值，以提高效率
     private static HashMap<Integer, Integer> cache = new HashMap<>();
 
     public static void main(String[] args) {
-        // 設定要計算的費波那契數列的項數
-        int n = 10;
-        // 使用遞歸方法計算並輸出第 n 項的費波那契數列值
-        System.out.println(fibonacciRecursion(n));
-        // 使用迭代方法計算並輸出第 n 項的費波那契數列值
-        System.out.println(fibonacciIteration(n));
-        // 使用遞歸方法計算並輸出前 n 項的費波那契數列
-        System.out.println(Arrays.toString(fibonacciRecursionArray(n)));
-        // 使用迭代方法計算並輸出前 n 項的費波那契數列
-        System.out.println(Arrays.toString(fibonacciIterationArray(n)));
+        // 創建 Scanner 物件來讀取使用者輸入
+        Scanner scanner = new Scanner(System.in);
+
+        // 提示使用者輸入要計算的費波那契數列的項數
+        System.out.print("請輸入要輸出的費波那契數列項數（從0開始）: ");
+        int n = scanner.nextInt();
+
+        // 計算並輸出第 n 項的費波那契數列值（遞歸方法）
+        System.out.printf("第 %d 項費波那契數列的值（遞歸方法）為: %d%n", n, fibonacciRecursion(n));
+
+        // 計算並輸出第 n 項的費波那契數列值（迭代方法）
+        System.out.printf("第 %d 項費波那契數列的值（迭代方法）為: %d%n", n, fibonacciIteration(n));
+
+        // 提示使用者輸入要輸出的費波那契數列的前幾項
+        System.out.print("請輸入要輸出的費波那契數列前幾項: ");
+        n = scanner.nextInt();
+
+        // 計算並輸出前 n 項的費波那契數列（遞歸方法）
+        System.out.printf("費波那契數列的前 %d 項（遞歸方法）為: %s%n", n, Arrays.toString(fibonacciRecursionArray(n)));
+
+        // 計算並輸出前 n 項的費波那契數列（迭代方法）
+        System.out.printf("費波那契數列的前 %d 項（迭代方法）為: %s%n", n, Arrays.toString(fibonacciIterationArray(n)));
+
+        // 關閉 scanner 物件
+        scanner.close();
     }
 
     // 使用遞歸方法計算第 n 項的費波那契數列值
